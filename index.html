@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prueba de Corsi</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Prueba de bloques de Corsi</h1>
+    <a href="resultados.html">Panel de resultados</a>
+  </header>
+
+  <main>
+    <!-- 1. REGISTRO -->
+    <section id="pantalla-registro" class="pantalla activa">
+      <h2>Datos del participante</h2>
+      <form id="form-registro">
+        <label>Nombre o alias
+          <input type="text" id="nombre" required>
+        </label>
+        <label>ID de participante
+          <input type="text" id="idParticipante" required>
+        </label>
+        <label>Edad
+          <input type="number" id="edad" min="5" max="120" required>
+        </label>
+        <label>Modo
+          <select id="modo">
+            <option value="directo">Orden directo (mismo orden)</option>
+            <option value="inverso">Orden inverso (al revés)</option>
+          </select>
+        </label>
+        <button type="submit">Continuar</button>
+      </form>
+    </section>
+
+    <!-- 2. INSTRUCCIONES -->
+    <section id="pantalla-instrucciones" class="pantalla">
+      <h2>Instrucciones</h2>
+      <p>Verás que algunos bloques se iluminan uno por uno.</p>
+      <p id="texto-modo"></p>
+      <p>Cada vez la secuencia será un poco más larga. Responde con la mayor
+         precisión y rapidez que puedas.</p>
+      <button id="btn-empezar">Comenzar</button>
+    </section>
+
+    <!-- 3. JUEGO -->
+    <section id="pantalla-juego" class="pantalla">
+      <p id="estado">&nbsp;</p>
+      <div id="tablero"></div>
+    </section>
+
+    <!-- 4. RESULTADOS DEL PARTICIPANTE -->
+    <section id="pantalla-resultados" class="pantalla">
+      <h2>¡Terminaste!</h2>
+      <div id="resumen"></div>
+      <button id="btn-nuevo">Nuevo participante</button>
+    </section>
+  </main>
+
+  <script src="js/db.js"></script>
+  <script src="js/corsi.js"></script>
+</body>
+</html>

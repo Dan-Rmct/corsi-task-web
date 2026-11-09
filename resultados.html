@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resultados - Corsi</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Panel de resultados</h1>
+    <a href="index.html">← Volver a la prueba</a>
+  </header>
+
+  <main class="ancho">
+    <section class="pantalla activa">
+      <div class="tarjetas" id="estadisticas"></div>
+
+      <div class="acciones">
+        <button id="btn-csv-resumen">Exportar resumen (CSV)</button>
+        <button id="btn-csv-ensayos" class="secundario">Exportar detalle por ensayo (CSV)</button>
+        <button id="btn-borrar-todo" class="peligro">Borrar todo</button>
+      </div>
+
+      <div class="tabla-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th><th>Nombre</th><th>ID</th><th>Edad</th><th>Modo</th>
+              <th>Span</th><th>Puntaje</th><th>Correctos</th><th>Errores</th>
+              <th>Lat. inicial (ms)</th><th>Lat. media (ms)</th><th>T. respuesta (ms)</th><th></th>
+            </tr>
+          </thead>
+          <tbody id="tabla-body"></tbody>
+        </table>
+      </div>
+      <p id="vacio" style="display:none">Aún no hay resultados guardados.</p>
+    </section>
+
+    <section class="pantalla activa" id="detalle" style="display:none; margin-top:20px">
+      <h2 id="detalle-titulo"></h2>
+      <div class="tabla-wrap">
+        <table>
+          <thead>
+            <tr><th>#</th><th>Longitud</th><th>Secuencia</th><th>Respuesta</th><th>Resultado</th>
+                <th>Errores</th><th>Lat. inicial (ms)</th><th>Lat. media (ms)</th><th>T. respuesta (ms)</th></tr>
+          </thead>
+          <tbody id="detalle-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/db.js"></script>
+  <script src="js/resultados.js"></script>
+</body>
+</html>
