@@ -35,7 +35,7 @@ const Config = {
     nivelMaximo: 9,        // longitud máxima
     ensayosPorNivel: 2,    // intentos por longitud
     colorEncendido: '#facc15',
-    sonido: true, 
+    sonido: true,          // sonido al iluminar y al hacer clic
     colores: ['#3b82f6', '#3b82f6', '#3b82f6', '#3b82f6', '#3b82f6',
               '#3b82f6', '#3b82f6', '#3b82f6', '#3b82f6']
   },

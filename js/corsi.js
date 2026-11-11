@@ -131,7 +131,7 @@ function leerConfig() {
   const cfg = {};
   CAMPOS_NUM.forEach(id => cfg[id] = parseInt($(id).value, 10));
   cfg.colorEncendido = $('colorEncendido').value;
-  cfg.sonido = $('sonido').checked;            
+  cfg.sonido = $('sonido').checked;
   cfg.colores = Array.from({ length: 9 }, (_, i) => $('color' + i).value);
 
   if (CAMPOS_NUM.some(id => Number.isNaN(cfg[id]))) {
@@ -174,7 +174,7 @@ $('form-registro').addEventListener('submit', (e) => {
   if (!cfg) return;
   Config.guardar(cfg);
   aplicarConfig();
-  prepararAudio();   
+  prepararAudio();
 
   participante = {
     nombre: $('nombre').value.trim(),
@@ -197,7 +197,7 @@ $('btn-nuevo').addEventListener('click', () => {
 
 async function iniciarPrueba() {
   aplicarConfig();
-  prepararAudio(); 
+  prepararAudio();
   nivel = NIVEL_INICIAL;
   ensayoEnNivel = 0;
   aciertosEnNivel = 0;
@@ -229,9 +229,9 @@ async function siguienteEnsayo() {
 
   for (const i of secuencia) {
     bloque(i).classList.add('encendido');
+    tono(523, MS_ENCENDIDO);                       // sonido al iluminarse
     await esperar(MS_ENCENDIDO);
     bloque(i).classList.remove('encendido');
-    tono(523, MS_ENCENDIDO);    
     await esperar(MS_PAUSA);
   }
 
@@ -257,7 +257,7 @@ function alClickBloque(i, el) {
     latenciaMs: Math.round(ahora - tUltimoEvento) // desde el clic anterior (o fin de secuencia)
   });
   tUltimoEvento = ahora;
-  tono(880, 90, 'triangle', 0.2); 
+  tono(880, 90, 'triangle', 0.2);                  // sonido al hacer clic (igual si acierta o falla)
 
   el.classList.add('tap');
   setTimeout(() => el.classList.remove('tap'), 150);
