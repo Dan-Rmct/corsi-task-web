@@ -51,15 +51,19 @@ button.peligro { background: #dc2626; }
   position: absolute;
   width: 13%;
   aspect-ratio: 1 / 1;
-  background: #3b82f6;
+  background: var(--color, #3b82f6);
   border: 0;
   border-radius: 6px;
   padding: 0;
   cursor: pointer;
   transition: background .08s;
 }
-.bloque.encendido { background: #facc15; box-shadow: 0 0 18px #facc15; }
-.bloque.tap       { background: #93c5fd; }
+.bloque:hover { background: var(--color, #3b82f6); }
+.bloque.encendido {
+  background: var(--color-encendido, #facc15);
+  box-shadow: 0 0 18px var(--color-encendido, #facc15);
+}
+.bloque.tap { filter: brightness(1.5); }
 #tablero.bloqueado .bloque { cursor: default; }
 
 /* ---- Resumen ---- */
@@ -79,3 +83,30 @@ tr.fila:hover { background: #f1f5f9; cursor: pointer; }
 .acciones { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0; }
 .ok { color: #16a34a; font-weight: 700; }
 .mal { color: #dc2626; font-weight: 700; }
+
+/* ---- Configuración dentro del registro ---- */
+details.config {
+  margin: 8px 0 20px;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+details.config summary { cursor: pointer; font-weight: 700; }
+details.config h3 { margin: 18px 0 8px; font-size: 1rem; }
+
+.grid-config { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0 18px; }
+.colores { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; }
+.colores label.oculto { display: none; }
+input[type="color"] { height: 42px; padding: 2px; cursor: pointer; }
+.msg { margin-top: 12px; font-weight: 600; }
+.err-msg { color: #dc2626; }
+
+/* ---- Casilla de sonido ---- */
+label.check { font-weight: 600; }
+label.check input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+  margin: 0 8px 0 0;
+  vertical-align: middle;
+}

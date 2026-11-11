@@ -90,12 +90,15 @@ function descargarCSV(nombre, filas) {
 $('btn-csv-resumen').addEventListener('click', () => {
   const filas = [['fecha', 'nombre', 'id', 'edad', 'modo', 'span', 'puntaje', 'ensayos_correctos',
                   'ensayos_totales', 'errores', 'precision_pct', 'latencia_inicial_ms',
-                  'latencia_media_ms', 'tiempo_respuesta_ms']];
+                  'latencia_media_ms', 'tiempo_respuesta_ms',
+                  'tiempo_iluminado_ms', 'pausa_ms', 'num_bloques']];
   DB.todos().forEach(d => {
     const r = d.resumen;
+    const c = d.config || {};
     filas.push([d.fecha, d.participante.nombre, d.participante.idParticipante, d.participante.edad,
       d.modo, r.span, r.puntajeTotal, r.ensayosCorrectos, r.ensayosTotales, r.erroresTotales,
-      r.precisionPct, r.latenciaInicialMediaMs, r.latenciaMediaMs, r.tiempoRespuestaMedioMs]);
+      r.precisionPct, r.latenciaInicialMediaMs, r.latenciaMediaMs, r.tiempoRespuestaMedioMs,
+      c.msEncendido ?? '', c.msPausa ?? '', c.numBloques ?? '']);
   });
   descargarCSV('corsi_resumen.csv', filas);
 });

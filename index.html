@@ -13,7 +13,7 @@
   </header>
 
   <main>
-    <!-- 1. REGISTRO -->
+    <!-- 1. REGISTRO + CONFIGURACIÓN -->
     <section id="pantalla-registro" class="pantalla activa">
       <h2>Datos del participante</h2>
       <form id="form-registro">
@@ -32,6 +32,52 @@
             <option value="inverso">Orden inverso (al revés)</option>
           </select>
         </label>
+
+        <details class="config" id="detalles-config">
+          <summary>Configuración de la prueba</summary>
+
+          <h3>Tiempos</h3>
+          <div class="grid-config">
+            <label>Tiempo iluminado de cada cuadro (ms)
+              <input type="number" id="msEncendido" min="100" max="5000" step="50">
+            </label>
+            <label>Pausa entre cuadros (ms)
+              <input type="number" id="msPausa" min="100" max="5000" step="50">
+            </label>
+          </div>
+
+          <h3>Cuadros por ronda</h3>
+          <div class="grid-config">
+            <label>Cuadros en el tablero (3 a 9)
+              <input type="number" id="numBloques" min="3" max="9">
+            </label>
+            <label>Longitud inicial de la secuencia
+              <input type="number" id="nivelInicial" min="1" max="9">
+            </label>
+            <label>Longitud máxima de la secuencia
+              <input type="number" id="nivelMaximo" min="1" max="9">
+            </label>
+            <label>Intentos por longitud
+              <input type="number" id="ensayosPorNivel" min="1" max="5">
+            </label>
+          </div>
+
+          <h3>Sonido</h3>
+          <label class="check">
+            <input type="checkbox" id="sonido"> Activar sonido al iluminar y al hacer clic
+          </label>
+
+          <h3>Colores</h3>
+          <label>Color de iluminación
+            <input type="color" id="colorEncendido">
+          </label>
+          <p>Color de cada cuadro:</p>
+          <div class="colores" id="colores"></div>
+
+          <button type="button" id="btn-restaurar" class="secundario">Valores por defecto</button>
+          <p id="mensaje-config" class="msg err-msg"></p>
+        </details>
+
         <button type="submit">Continuar</button>
       </form>
     </section>
